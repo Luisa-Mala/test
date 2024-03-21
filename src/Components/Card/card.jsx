@@ -5,11 +5,8 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
-import { IconLike } from "../../Elements/Icons/Like";
-import { Button } from "@mui/material";
 
-export default function OutlinedCard({ data, large }) {
-  const [isActive, setIsActive] = React.useState(false);
+export default function OutlinedCard({ data, large, children }) {
   
   return (
     <Box sx={{ minWidth: 275 }}>
@@ -55,11 +52,7 @@ export default function OutlinedCard({ data, large }) {
                 Learn More
               </Link>
             )}
-            {large && (
-              <Button onClick={() => setIsActive(!isActive)}>
-                <IconLike isActive={isActive} />
-              </Button>
-            )}
+            {children}
           </CardActions>
         </React.Fragment>
       </Card>

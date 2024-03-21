@@ -1,23 +1,16 @@
-import { useEffect, useState } from "react";
-import { getAllCharacter } from "../Api/fetch";
 import OutlinedCard from "../Components/Card/card";
 import { Header } from "../Components/Header/Header";
+import { Loading } from "../Elements/Loading/Loading";
+import { useGetAllCharacter } from "../Utils/Hooks";
 
 export const Home = () => {
-  const [characters, setCharacters] = useState([]);
-  useEffect(() => {
-    async function fetchData() {
-      let data = await getAllCharacter();
-      // SORT ALPHABETICAL ORDER
-      setCharacters(data.results.sort((a, b) => a.name.localeCompare(b.name)));
-    }
-    fetchData();
-  }, []);
+  const { characters } = useGetAllCharacter();
 
   return (
     <>
       <Header />
       <section className="characters-grid">
+        <Loading />
         {characters ? (
           characters.map((item) => (
             <>
@@ -25,7 +18,7 @@ export const Home = () => {
             </>
           ))
         ) : (
-          <p>Cargando...</p>
+          <p>List not found...</p>
         )}
       </section>
     </>
