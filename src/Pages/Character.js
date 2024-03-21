@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import OutlinedCard from "../Components/Card/card";
 import { Header } from "../Components/Header/Header";
-import { Button, TextField } from "@mui/material";
+import { Button } from "@mui/material";
 import { IconLike } from "../Elements/Icons/Like";
 import { useGetLocalCharacter, useGetCharacterById } from "../Utils/Hooks";
 import { Loading } from "../Elements/Loading/Loading";

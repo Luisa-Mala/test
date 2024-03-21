@@ -1,17 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAllCharacter, getCharacter } from "../Services/fetch";
 
-export function useGetLocalCharacter(id) {
-  const [item, setItem] = useState(false);
-
-  useEffect(() => {
-    const character = localStorage.getItem(id);
-    character ? setItem(true) : setItem(false);
-  }, [id]);
-
-  return { item };
-}
-
 export function useGetAllCharacter() {
   const [characters, setCharacters] = useState([]);
 
@@ -41,4 +30,15 @@ export function useGetCharacterById(id) {
   };
 
   return { character };
+}
+
+export function useGetLocalCharacter(id) {
+  const [item, setItem] = useState(false);
+
+  useEffect(() => {
+    const character = localStorage.getItem(id);
+    character ? setItem(true) : setItem(false);
+  }, [id]);
+
+  return { item };
 }

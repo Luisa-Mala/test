@@ -7,7 +7,7 @@ export default function App() {
     <div>
       <Router>
         <Switch>
-          <Route path="/character">
+          <Route path="/character/id">
             <Character />
           </Route>
           <Route path="/">

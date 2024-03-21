@@ -12,11 +12,7 @@ export const Home = () => {
       <section className="characters-grid">
         <Loading />
         {characters ? (
-          characters.map((item) => (
-            <>
-              <OutlinedCard data={item} />
-            </>
-          ))
+          characters.map((item, idx) => <OutlinedCard data={item} key={idx} />)
         ) : (
           <p>List not found...</p>
         )}
